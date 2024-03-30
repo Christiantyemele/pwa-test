@@ -20,11 +20,14 @@ function Timer() {
     }, [seconds])
 
     return (
+        <html data-theme="valentine">
         <div className="flex">
             <div className="flex-none w-14">
             {seconds}
         </div>
         </div>
+</html>
+
     )
 }
 
