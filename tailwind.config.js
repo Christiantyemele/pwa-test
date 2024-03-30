@@ -1,13 +1,16 @@
-module.exports = {
-  purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
-  darkMode: false, // or 'media' or 'class'
-  theme: {
-    extend: {},
-  },
-  variants: {
-    extend: {},
-  },
-  plugins: [
-      require('daisyui'),
-  ]
+/** @type {import('tailwindcss').config} */
+
+export default {
+    purge: [],
+    darkMode: false, // or 'media' or 'class'
+    daisyui: {
+        theme: [
+            "light", "valentine", "aqua"
+        ],
+        extend: {},
+    },
+    variants: {
+        extend: {},
+    },
+    plugins: [],
 }
