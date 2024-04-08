@@ -1,6 +1,4 @@
 import {useEffect, useState} from "react";
-import {findReturnStatement} from "eslint-plugin-react/lib/util/ast.js";
-import Card from "./Card.jsx";
 
 function Timer() {
     const [seconds, updateseconds] = useState(0);
@@ -18,15 +16,33 @@ function Timer() {
             clearInterval(interval)
         }
     }, [seconds])
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setminutes(minutes => minutes < 60 ? minutes + 1 : 0)
+        }, 1000 * 60)
+        return () => {
+            clearInterval(interval)
+        }
 
+    }, []);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            sethours(hours => hours < 60 ? hours + 1 : 0)
+        }, 1000 * 60 * 60)
+        return () => {
+            clearInterval(interval)
+        }
+
+    }, []);
     return (
         <html data-theme="valentine">
         <div className="flex">
             <div className="flex-none w-14">
-            {seconds}
+                {hours} : {minutes} : {seconds}
+            </div>
         </div>
-        </div>
-</html>
+        </html>
 
     )
 }
