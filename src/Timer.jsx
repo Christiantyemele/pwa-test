@@ -8,7 +8,7 @@ function Timer() {
 
     useEffect(() => {
 
-        const interval = setInterval(() => {
+        const interval = setInterval(async () => {
             updateseconds(seconds => seconds < 59 ? seconds + 1 : 0)
         }, 1000)
 
@@ -17,14 +17,14 @@ function Timer() {
         }
     }, [seconds])
     useEffect(() => {
-        const interval = setInterval(() => {
+        const interval = setInterval(async () => {
             setminutes(minutes => minutes < 60 ? minutes + 1 : 0)
-        }, 1000 * 60)
+        }, 1000 * 60 + 1)
         return () => {
             clearInterval(interval)
         }
 
-    }, []);
+    }, [minutes]);
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -34,7 +34,7 @@ function Timer() {
             clearInterval(interval)
         }
 
-    }, []);
+    }, [hours]);
     return (
         <html data-theme="valentine">
         <div className="flex">
